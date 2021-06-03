@@ -1,13 +1,13 @@
 .loader {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
 }
 
 .loader img {
-  width: 17%;
   height: 25%;
+  width: 17%;
 }

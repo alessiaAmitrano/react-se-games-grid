@@ -8,8 +8,8 @@ const HTTP_URL =
   "https://react-se-games-grid-default-rtdb.europe-west1.firebasedatabase.app/games.json";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const [games, setGames] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedGame, setSelectedGame] = useReducer((state, action) => {
     state = action.game;
     return state;
@@ -17,14 +17,12 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true);
-
     fetch(HTTP_URL)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
         setGames(data);
-        console.log("data", games);
         setIsLoading(false);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -36,7 +34,7 @@ function App() {
       document.body.style.position = "fixed";
       document.body.style.top = `-${window.scrollY}px`;
     } else {
-      // When the modal is hidden...
+      // When the modal is hidden we can scroll through the page again
       const scrollY = document.body.style.top;
       document.body.style.position = "";
       document.body.style.top = "";

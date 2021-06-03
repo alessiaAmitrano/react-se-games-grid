@@ -1,24 +1,20 @@
-  .gamesGrid {
-    padding: 25px;
-    width: calc(100vw -50px);
-    display: grid;
-    grid-template-columns: repeat(12, calc((100vw - 50px)/12));
-    grid-template-rows: repeat(4, auto);
-    grid-template-areas:
-    "card0 card0 card0 card0 card0 card0 card0 card0 card1 card1 card1 card1 "
-    "card2 card2 card2 card2 card3 card3 card3 card3 card4 card4 card4 card4 "
-    "card5 card5 card5 card6 card6 card6 card7 card7 card7 card8 card8 card8 "
-    "card9 card9 card10 card10 card11 card11 card12 card12 card13 card13 card14 card14";
-  }
+.gamesGrid {
+  display: grid;
+  grid-template-areas:
+  "card0 card0 card0 card0 card0 card0 card0 card0 card1 card1 card1 card1 "
+  "card2 card2 card2 card2 card3 card3 card3 card3 card4 card4 card4 card4 "
+  "card5 card5 card5 card6 card6 card6 card7 card7 card7 card8 card8 card8 "
+  "card9 card9 card10 card10 card11 card11 card12 card12 card13 card13 card14 card14";
+  grid-template-columns: repeat(12, calc((100vw - 50px)/12));
+  grid-template-rows: repeat(4, auto);
+  padding: 25px;
+  width: calc(100vw -50px);
+}
 
 /* Mobile Portrait */
 @media screen and (max-device-width: 480px) and (orientation:portrait) {
-        .gamesGrid {
-    padding: 25px;
-    width: calc(100vw -50px);
+  .gamesGrid {
     display: grid;
-    grid-template-columns: repeat(2, calc((100vw - 50px)/2));
-    grid-template-rows: repeat(12, auto);
     grid-template-areas:
     "card0 card0"
     "card1 card1"
@@ -32,17 +28,17 @@
     "card9 card10"
     "card11 card12"
     "card13 card14";
+    grid-template-columns: repeat(2, calc((100vw - 50px)/2));
+    grid-template-rows: repeat(12, auto);
+    padding: 25px;
+    width: calc(100vw -50px);
   }
 }
 
 /* Mobile Landscape */
 @media screen and (max-device-width: 700px) and (orientation:landscape) {
-      .gamesGrid {
-    padding: 25px;
-    width: calc(100vw -50px);
+  .gamesGrid {
     display: grid;
-    grid-template-columns: repeat(6, calc((100vw - 50px)/6));
-    grid-template-rows: repeat(5, auto);
     grid-template-areas:
     "card0 card0 card0 card0 card0 card0 "
     "card1 card1 card1 card2 card2 card2 "
@@ -51,17 +47,17 @@
     "card7 card7 card7 card8 card8 card8 "
     "card9 card9 card10 card10 card11 card11"
     "card12 card12 card13 card13 card14 card14";
+    grid-template-columns: repeat(6, calc((100vw - 50px)/6));
+    grid-template-rows: repeat(5, auto);
+    padding: 25px;
+    width: calc(100vw -50px);
   }
 }
 
 /* Tablet Portrait */
 @media screen and (min-device-width: 701px) and (orientation:portrait) {
-    .gamesGrid {
-    padding: 25px;
-    width: calc(100vw -50px);
+  .gamesGrid {
     display: grid;
-    grid-template-columns: repeat(6, calc((100vw - 50px)/6));
-    grid-template-rows: repeat(5, auto);
     grid-template-areas:
     "card0 card0 card0 card0 card0 card0 "
     "card1 card1 card1 card2 card2 card2 "
@@ -70,6 +66,10 @@
     "card7 card7 card7 card8 card8 card8 "
     "card9 card9 card10 card10 card11 card11"
     "card12 card12 card13 card13 card14 card14";
+    grid-template-columns: repeat(6, calc((100vw - 50px)/6));
+    grid-template-rows: repeat(5, auto);
+    padding: 25px;
+    width: calc(100vw -50px);
   }
 }
 
