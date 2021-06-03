@@ -8,8 +8,10 @@ function GameCard({ game }) {
   return (
     <div className={styles.card} style={gridArea}>
       <img src={`assets/${game.artwork}`} alt={game.title} />
-      <h1>{game.title}</h1>
-      <p>{game.content.substring(0, 100) + "..."}</p>
+      <div className={styles.cardText}>
+        <h2>{game.title}</h2>
+        <p>{game.content.substring(0, 100) + "..."}</p>
+      </div>
     </div>
   );
 }
