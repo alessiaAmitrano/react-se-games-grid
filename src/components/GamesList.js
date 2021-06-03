@@ -1,11 +1,17 @@
 import GameCard from "./GameCard";
 import styles from "./GamesList.module.css";
 
-function GamesList({ games }) {
+function GamesList({ games, handleToggleLightbox }) {
   return (
     <div className={styles.gamesGrid}>
       {games.map((game) => {
-        return <GameCard key={game.id} game={game} />;
+        return (
+          <GameCard
+            key={game.id}
+            game={game}
+            handleToggleLightbox={handleToggleLightbox}
+          />
+        );
       })}
     </div>
   );

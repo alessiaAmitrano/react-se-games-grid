@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import GamesList from "./components/GamesList";
 import Layout from "./ui/Layout";
+import Lightbox from "./ui/Lightbox";
 import Loader from "./ui/Loader";
 
 const HTTP_URL =
@@ -9,6 +10,10 @@ const HTTP_URL =
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [games, setGames] = useState([]);
+  const [selectedGame, setSelectedGame] = useReducer((state, action) => {
+    state = action.game;
+    return state;
+  });
 
   useEffect(() => {
     setIsLoading(true);
@@ -25,8 +30,46 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (selectedGame) {
+      // When the modal is shown, we want a fixed body
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${window.scrollY}px`;
+    } else {
+      // When the modal is hidden...
+      const scrollY = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
+    }
+  }, [selectedGame]);
+
+  function handleToggleLightbox(game) {
+    setSelectedGame({ game: game });
+  }
+
   return (
-    <Layout>{isLoading ? <Loader /> : <GamesList games={games} />}</Layout>
+    <Layout>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <GamesList games={games} handleToggleLightbox={handleToggleLightbox} />
+      )}
+      {selectedGame ? (
+        <Lightbox handleCloseLightBox={handleToggleLightbox}>
+          <img
+            src={`assets/${selectedGame.artwork}`}
+            alt={selectedGame.alt_text}
+          />
+          <div>
+            <h2>{selectedGame.title}</h2>
+            <p>{selectedGame.content}</p>
+          </div>
+        </Lightbox>
+      ) : (
+        ""
+      )}
+    </Layout>
   );
 }
 
