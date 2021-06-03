@@ -1,10 +1,11 @@
 import GameCard from "./GameCard";
+import styles from "./GamesList.module.css";
 
 function GamesList({ games }) {
   return (
-    <div>
+    <div className={styles.gamesGrid}>
       {games.map((game) => {
-        return <GameCard game={game} />;
+        return <GameCard key={game.id} game={game} />;
       })}
     </div>
   );
