@@ -1,3 +1,13 @@
+# REACT SE GAMES GRID
+
+This project was created with 'Create React App' but doesn't use any external library. It is written in Vanilla Javascript using css modules for styling purposes and Prettier configuration for formatting.
+
+The app displays a spinner while fetching data from a Firebase API, then displays the data rendering a card element for each game object returned. For the assets, I have used images taken from the Square Enix official Website. I do not own any rights for the assets. After a thorough analysis, I have decided to use CSS Grid to display the cards according to the Mockup. The grid is responsive and changes according to device and portrait/landscape mode.
+
+When the user clicks on a card, a lightbox will appear displaying the full data for the selected game. I have opted for a reusable Lightbox component.
+
+I attach a series of simple tests using the Jest react-testing library shipped with Create React App.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
