@@ -56,6 +56,7 @@ function App() {
       {selectedGame ? (
         <Lightbox handleCloseLightBox={handleToggleLightbox}>
           <img
+            aria-hidden="true"
             src={`assets/${selectedGame.artwork}`}
             alt={selectedGame.alt_text}
           />
